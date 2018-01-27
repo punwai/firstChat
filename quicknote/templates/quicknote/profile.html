@@ -1,0 +1,7 @@
+{% extends 'navbar.html' %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <h1>{{user.user_name}}</h1>
+  {% endif %}
+
+{% endblock %}

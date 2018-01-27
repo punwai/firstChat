@@ -1,0 +1,142 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+body{
+  background: #7FDEFF;
+}
+#jumbojo{
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+#bigbutton{
+  border-radius: 0px;
+  background-color: #ACE4AA;
+  color: #000000;
+}
+
+.btn-primary{
+  background: #ACE4AA;
+  border-color: : #ACE4AA;
+}
+.navbar.bg-custom{
+  background: #49306B;
+}
+.jumbotron{
+  border-color: black;
+  border-width: thin;
+}
+
+
+
+/* SIDEBAR STUFF */
+.grid-item {
+  min-width: 40%
+}
+
+#fontent{
+  border: 0;
+  flex: 1;
+}
+#sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 100vh;
+    margin-right: -300px;
+}
+#content{
+  min-height:100vh;
+
+}
+
+#sidebar.active {
+    margin-right: 0px;
+}
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-right: 0px;
+    }
+    #sidebar.active {
+        margin-right: -300px;
+    }
+}
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #FFF8F0;
+    color: #284B63;
+    transition: all 0.3s;
+
+
+}
+
+#sidebar .sidebar-header {
+    padding: 6px;
+    padding-top: 11px;
+    background: #907AD6;
+    color: #fff;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #FFF8F0;
+}
+
+#sidebar ul p {
+    color: #284B63;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li:hover {
+    color: #FFF8F0;
+    background: #284B63;
+}
+.wrap{
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #284B63;
+    background: #FFF8F0;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-right: 30px !important;
+    background: #FFF8F0;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}

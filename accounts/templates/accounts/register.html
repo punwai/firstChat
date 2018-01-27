@@ -1,0 +1,11 @@
+{% extends 'quicknote/navbar.html' %}
+{% block content %}
+  <div class="jumbotron">
+    <form action="" method="post">{% csrf_token %}
+      {{ invalid }}
+      {{ form.as_p }}
+      <input class="btn btn-success" type="submit" value="Register!">
+    </form>
+  </div>
+
+{% endblock %}

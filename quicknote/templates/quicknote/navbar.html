@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+{% load staticfiles %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title></title>
+
+
+  {# CSS #}
+
+  {# JS #}
+
+  {# BOOTSTRAP CSS #}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+  {# BOOTSTRAP JS #}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+  {# My CSS and JS #}
+  <link rel="stylesheet" href="{% static 'quicknote/main.css' %}">
+  <script src='{% static "quicknote/main.js" %}'></script>
+
+  {# Jquery #}
+  <script
+  src="https://code.jquery.com/jquery-3.3.0.min.js"
+  integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
+  crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
+
+  {# CHAT CSS #}
+  <link rel="stylesheet" href="{% static 'chat/main.css' %}">
+  <script src='{% static "chat/chat.js" %}'></script>
+
+</head>
+
+
+
+
+{# BODY #}
+<body>
+
+  <nav id='navid' class="navbar navbar-dark bg-custom navbar-expand-lg" >
+    {# BRAND #}
+
+
+    <a class="navbar-brand" href="{% url 'index' %}">QUICKNOTES</a>
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {#COLLAPSE#}
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      {# left side #}
+      <div class="navbar-nav">
+        {# user info #}
+        {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Logout</a> {% else %}
+        <a class="nav-item nav-link" href="{% url 'accounts:register' %}">Register</a>
+        <a class="nav-item nav-link" href="{% url 'accounts:login' %}">Login</a> {% endif %}
+        <a class="nav-item nav-link disabled" href="#">Premium</a>
+        <a href="#"></a>
+      </div>
+
+
+      {# right side #}
+      <div class="navbar-nav ml-auto">
+        <input class="form-control mr-sm-2" type="Search People" placeholder="Search" aria-label="Search">
+        <div class="wrap">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+
+
+
+      </div>
+      <div class="wrap">
+        <button type="button" id="sidebarCollapse" class="btn btn-outline-success navbar-btn">
+        <i class="glyphicon glyphicon-align-left"></i>
+        Chatbar
+        </button>
+      </div>
+
+      {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url 'accounts:profile' %}">{{ user.get_username }}</a>
+      {% endif %}
+
+    </div>
+
+  {# collapse #}
+  </nav>
+  {# navbar end #}
+
+  {# NAVBARR #}
+
+
+  <div class="wrapper">
+
+    <div id="fontent">
+
+      {% block content %} {% endblock %}
+
+    </div>
+
+
+    <nav id=sidebar>
+
+      <div class="sidebar-header">
+        <h5>Chatbar</h5>
+      </div>
+
+      <div class="sidebar-content">
+        <ul id='roomsul'>
+          {% for room in rooms %}
+            <li class='room-link' data-room-id={{room.id}}>{{room.display_name}}</li>
+          {% empty %}
+            <p>no rooms available, maybe create one?</p>
+          {% endfor %}
+
+        </ul>
+
+
+        <div id="chats">
+
+        </div>
+
+
+      </div>
+
+
+
+
+    </nav>
+
+
+
+
+
+  {# sidebar #}
+
+
+  </div>
+  {# wrapper end #}
+
+
+
+</body>
+
+</html>

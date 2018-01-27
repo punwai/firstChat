@@ -1,0 +1,11 @@
+.room-link{
+  margin: auto;
+  border: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+#roomsul{
+  list-style-type: none;
+}
